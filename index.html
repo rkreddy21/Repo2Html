@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+<style>
+body {
+    width: 100%;
+    height: auto;
+    font-family: Tahoma, Geneva, sans-serif;
+    margin: -2px 0 0 -3px;
+
+}
+
+#Wrapper {
+    width: 100%;
+    height: auto;
+    border: none;
+    margin:0 auto;
+}
+
+#Menu {
+    width: 100%;
+    height: 125px;
+    margin-bottom: 5px;
+    position: fixed;
+    /*background-color: #f39e17;*/
+    background-color: #eeeded;
+}
+
+#Content {
+    width: 100%;
+    height: auto;
+    padding-top: 100px;
+}
+
+#Left {
+    float: left;
+    width: 35%;
+    height: 60%;
+    text-align: center;
+}
+#Right {
+    float: right;
+    width: 60%;
+    height: 55%;
+}
+#up {
+    height: 50%;
+}
+#down {
+    height: 50%;
+    position: relative;
+    top: -24px;
+    left: 0px;
+    width:101%;
+}
+/* -----------------------------------------------------------------------------------------------------------------------------------*/
+
+.usrmstr_ul ul {
+    /*list-style: none;*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /*background-color: #333;*/
+}
+
+.usrmstr_ul li {
+    float: left;
+    list-style: none;
+}
+
+    .usrmstr_ul li a, .dropbtn {
+        display: inline-block;
+        color: #b01515;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        list-style: none;
+    }
+
+        .usrmstr_ul li a:hover, .dropdown:hover .dropbtn {
+            background-color: rgba(178, 161, 161, 0.20);
+            border-radius: 10px;
+        }
+
+    .usrmstr_ul li.dropdown {
+        display: inline-block;
+    }
+
+.usrmstr_ul .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .usrmstr_ul .dropdown-content a {
+        color: #b01515;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+
+    }
+
+        .usrmstr_ul .dropdown-content a:hover {
+            background-color: rgba(178, 161, 161, 0.20);
+
+        }
+
+.usrmstr_ul .dropdown:hover .dropdown-content {
+    display: block;
+}
+/* Footer*/
+
+</style>
+    <style type="text/css">
+        .vl {
+            border-left: 1px solid green;
+            height: 100%;
+            position: fixed;
+            left: 20%;
+            margin-left: -2px;
+            top: 123px;
+        }
+
+        .ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+        }
+
+            .ul li a {
+                display: block;
+                color: #000;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+
+                .ul li a.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+        li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style type="text/css">
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            display: inline-block;
+        }
+
+        .area {
+            float: left;
+            background: #e2e2e2;
+            width: 100%;
+            height: 100%;
+        }
+
+        #UP_Wrapper {
+            width: 100%;
+            height: auto;
+            border: none;
+            margin-top: 25px;
+        }
+        #UP_Wrapper .vertical
+        {
+            width: 20%; float: left; height: auto; position:fixed;
+
+        }
+        #UP_Wrapper .rightcontent
+        {
+            width: 77%; float: right; padding-left: 10px; height: 100%;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form2" runat="server">
+                <div id="Wrapper">
+                    <div id="Menu">
+                        <div id="top" style="text-align: right; background-color: #9d0c0c; height: 40px; width: 100%; color: white; padding-top: 2px; position: fixed">
+                            <h4 style="margin-right: 15px; margin-top: 5px; font-family: 'Yu Gothic Light';">
+                                <asp:Label ID="Welcomelbl" runat="server" Text=""></asp:Label></h4>
+                        </div>
+                        <div id="Left" style="text-align: center; margin-top: 40px;">
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo2.png" Height="90" Width="400" />
+                        </div>
+                        <div id="Right" style="margin-top: 40px;">
+
+                            <div id="down" style="margin-top: 30px;">
+
+                                <ul class="usrmstr_ul">
+                                    <li><a href="User_Default.aspx">Home</a></li>
+                                    <li><a href="#news">ContactUs</a></li>
+                                    <li><a href="#About">About</a></li>
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0)" class="dropbtn">Libruary's</a>
+                                        <div class="dropdown-content">
+                                            <a href="#">Sql Server</a>
+                                            <a href="#">MSBI</a>
+                                            <a href="#">Linux</a>
+											<a href="#">SAP</a>
+                                        </div>
+                                    </li>
+
+                                    <li><a href="#">Free Videos</a></li>
+
+                                    <li class="dropdown" style="margin-left: 10px;">
+                                        <a href="javascript:void(0)" class="dropbtn">
+                                            <asp:Label ID="lbl_user" runat="server"></asp:Label></a>
+                                        <div class="dropdown-content">
+                                            <a href="#">Dot Net</a>
+                                            <a href="#">Sql Server</a>
+                                            <asp:LinkButton ID="btnLogout" OnClick="btnLogout_Click" runat="server" class="hidden">LogOut</asp:LinkButton>
+                                            <script type="text/javascript">
+                                                function Logout() {
+                                                    $("#btnLogout").click();
+                                                }</script>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <asp:ImageButton ID="User_Profile_Img" runat="server" CssClass="user_img_circle" Style="cursor: pointer" Width="40" Height="40" ImageUrl="~/Images/BlankProfilePic.png" OnClick="ImageButton1_Click" />
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div id="Content">
+
+                        <div id="UP_Wrapper">
+                            <div class="vertical">
+                                    <ul class="ul">
+                                        <li><a class="active" href="User_Profile_Page.aspx">Profile</a></li>
+                                        <li><a href="AdminDashboard.aspx">Dashboards</a></li>
+                                        <li><a href="#">Cource Track</a></li>
+                                        <li><a href="#">Complete Info</a></li>
+                                    </ul>
+                            </div>
+                            <div class="vl"></div>
+                            <div class="rightcontent">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+    </form>
+</body>
+</html>
